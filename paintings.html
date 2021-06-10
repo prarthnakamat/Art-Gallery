@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css" >
+    <!--script defer src="lightbox.js"></script-->
+</head>
+<body>
+    <div class="header-container" id="header-container">
+            <!--img src="images/Rectangle1.svg" alt="header" class="rect1"-->
+            <img src= "images/logo.png" alt="Creations by prar. Logo" class=logo>
+            <div class="nav">
+                <nav>
+                    <a href="#" class="hide-desktop">
+                        <img src="images/ham.svg" alt="toggle menu" class="menu" id="menu">
+                    </a>
+
+                    <ul class="show-desktop hide-mobile" id="nav">
+                        <li id="exit" class="exit-btn hide-desktop">
+                        <img src="images/exit.svg" alt="exit menu" id="exit-btn"></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="about.html">About</a></li>
+                        
+                    </ul>
+                </nav>
+            </div>
+</div>
+
+    <div class="gheader">
+        <p>PAINTINGS</p>
+    
+    <form class="gchoice">
+            <label for="Sort">sort</label>
+            <select name="Sort" id="Sort"  onchange="location = this.value;"> 
+                <option value="">default</option> 
+                <option value="paintings.html">Paintings</option>          
+                <option value="inktober.html">Inktober</option> 
+                <option value="sketches.html">Sketches</option> 
+            </select>         
+        </form>
+    </div>
+
+    <div class="gallery">
+        <img src="paintings/i1.jpg" alt="image" class="zoom-img">
+        <img src="paintings/i2.jpg" alt="image" class="zoom-img">
+        <img src="paintings/i3.jpg" alt="image" class="zoom-img">
+        <img src="paintings/i4.jpg" alt="image" class="zoom-img">
+        <img src="paintings/i5.jpg" alt="image" class="zoom-img">
+        <img src="paintings/i6.jpg" alt="image" class="zoom-img">
+        <img src="paintings/i7.jpg" alt="image" class="zoom-img">
+        <img src="paintings/i8.jpg" alt="image" class="zoom-img">
+        <img src="paintings/i9.jpg" alt="image" class="zoom-img">
+
+    </div>
+
+    <footer>
+        <div class="footer-container">
+                <!--img src="images/Rectangle2.svg" alt="footer"-->
+                <p class="thankyou">Thank you for visiting! <br>
+                     Check out my social media handles if you wish to. <br>
+                </p>
+                <ul class="social">
+                    <li>
+                     <a class="email" href="mailto:prarthnakamat@gmail.com"><img src="images/email.svg" alt=""></a>
+                    </li>
+                    <li>
+                        <a class="ig" href="https://www.instagram.com/prarthnaaaa/" target="_blank"><img src="images/instagram.svg" alt=""></a>
+                    </li>
+                    <li>
+                        <a class="yt" href="https://www.youtube.com/channel/UChmbWY5HhCysp8jyeqhl0mQ" target="_blank"><img src="images/youtube.svg" alt=""></a>
+                    </li>
+                </ul>     
+                <p class="copyright">
+                    © Creations by prar. 2021 <br>
+                </p>
+            </div>
+    
+    </footer>
+
+    <script>
+        var menu= document.getElementById('menu')
+        var nav= document.getElementById('nav')
+        var exit= document.getElementById('exit')
+        
+        menu.addEventListener('click',function(e){
+            nav.classList.toggle('hide-mobile');
+            e.preventDefault();
+
+        });
+
+        exit.addEventListener('click',function(e){
+            nav.classList.toggle('hide-mobile');
+            e.preventDefault();
+
+        });
+
+
+
+        const lightboxBg = document.createElement('div');
+        lightboxBg.id="lightboxBg";
+        document.body.appendChild(lightboxBg);
+
+        const images=document.querySelectorAll('.zoom-img');
+        images.forEach(image=>{
+            image.addEventListener('click', e=>{
+                lightboxBg.classList.add('active');
+                const lightboxImg= document.createElement('img');
+                lightboxImg.src=image.src;
+                lightboxImg.id="lightboxImg";
+                while(lightboxBg.firstChild){
+                    lightboxBg.removeChild(lightboxBg.firstChild)
+                }
+                lightboxBg.appendChild(lightboxImg);
+            })
+        })
+
+        lightboxBg.addEventListener('click', e=>{
+            lightboxBg.classList.remove('active');
+        })
+
+
+
+    </script>
+
+</body>
+</html> 
