@@ -740,6 +740,12 @@ form{
     #lightboxImg{
         max-width:30%;
     }
+    
+    .gallery{
+    grid-gap: 10px;
+    margin: 50px;
+}
+
 
 }
 
